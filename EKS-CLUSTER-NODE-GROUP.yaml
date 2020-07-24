@@ -1,0 +1,20 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Dfly EKS Node Group'
+Resources:
+  EKSNodegroup:
+    Type: 'AWS::EKS::Nodegroup'
+    Properties:
+      ClusterName: Dfly-dev-eks-cluster
+      NodegroupName: Dfly-dev-eks-nodegroup
+      NodeRole: 'arn:aws:iam::042794132985:role/NodeInstanceRole'
+      ScalingConfig:
+         MinSize: 1
+         DesiredSize: 1
+         MaxSize: 2
+      Labels:
+          Name: dfly-eks-cluster-nodegroup-node
+      Subnets:
+         - subnet-2ec7a063
+         - subnet-875787d8
+

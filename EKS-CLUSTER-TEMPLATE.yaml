@@ -1,0 +1,17 @@
+---
+AWSTemplateFormatVersion: '2010-09-09'
+Description: 'Dfly EKS Cluster '
+Resources:
+   DflyEKSCluster:
+     Type: 'AWS::EKS::Cluster'
+     Properties:
+        Name: Dfly-dev-eks-cluster
+        Version: '1.17'
+        RoleArn: 'arn:aws:iam::042794132985:role/eksClusterRole'
+        ResourcesVpcConfig:
+          SecurityGroupIds:
+             - sg-0748ec4a9a0c89315
+          SubnetIds:
+             - subnet-3cc3145a
+             - subnet-be60e9b0
+
